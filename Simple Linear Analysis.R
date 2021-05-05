@@ -33,6 +33,16 @@ HGMFdat =data.frame(HGMF =hgmfgrid)
 HGMFdat
 
 #predictions
+predvals = predict.lm(better.ecloi.lm, newdata = HGMFdat, interval = 'prediction')
+predvals
+confvals = predict.lm(better.ecloi.lm, newdata = HGMFdat, interval = 'confidence')
+predvals
 
+ind =which(hgmfgrid ==1)
+ind
+           predband1= predvals[ind,2:3]
+           predband1
+           confband1= confvals[ind,2:3]
+           confband1
 #-------------------------------------------------------------------------------
   
