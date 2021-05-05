@@ -3,7 +3,7 @@
 ##(in log10 CFU/ml) and a more complex test HGMF (in log10 CFU/ml). Portions of beef were contaminated
 ##with E. Coli and then each piece was tested by both methods. Data is contained in the file ecoli.txt
 ##Fetching the Data Ecoli.txt
-ecoli =read.table("ecoli.txt", header =TRUE)
+ecoli =read.table("Data/ecoli.txt", header =TRUE)
 
 #Inspecting Scatterplot
 plot(HEC ~ HGMF, data=ecoli)
@@ -45,4 +45,17 @@ ind
            confband1= confvals[ind,2:3]
            confband1
 #-------------------------------------------------------------------------------
-  
+        #constructing 95% CI for Slope
+qt(0.025, 15, lower.tail =FALSE)    #15 is df
+
+#Using this confidence interval test the hypothesis that the slope is 1
+
+           
+#cleanEcoli is the R object that contains the data without the outlier.
+           x = cleanEcoli$HGMF
+           xbar = mean(x)
+           n = length(x)
+           Sxx = (n - 1) * var(x)
+           c(n, xbar, Sxx)
+
+           
