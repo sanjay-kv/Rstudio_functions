@@ -57,5 +57,6 @@ qt(0.025, 15, lower.tail =FALSE)    #15 is df
            n = length(x)
            Sxx = (n - 1) * var(x)
            c(n, xbar, Sxx)
+           
 
            
